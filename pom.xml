@@ -91,33 +91,29 @@
 						</excludes>
 					</configuration>
 				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>1.5.1</version>
+					<extensions>true</extensions>
+					<executions>
+						<execution>
+							<id>default-deploy</id>
+							<phase>deploy</phase>
+							<goals>
+								<goal>deploy</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<serverId>nexus-sonatype</serverId>
+						<nexusUrl>https://oss.sonatype.org</nexusUrl>
+						<skipStaging>true</skipStaging>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.5.1</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<id>default-deploy</id>
-						<phase>deploy</phase>
-						<goals>
-							<goal>deploy</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<serverId>nexus-sonatype</serverId>
-					<nexusUrl>https://oss.sonatype.org</nexusUrl>
-					<skipStaging>true</skipStaging>
-				</configuration>
-			</plugin>
-		</plugins>
 	</build>
-
-
 
     <properties>
         <openmrs.platform.version>2.1.0</openmrs.platform.version>
@@ -299,8 +295,12 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus-sonatype</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
+		<repository>
+			<id>nexus-sonatype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
 	</distributionManagement>
 
 <profiles>
