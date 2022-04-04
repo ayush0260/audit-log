@@ -21,14 +21,12 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@Service
 @Transactional
 public class AuditLogServiceImpl implements AuditLogService {
 
     private AuditLogDao auditLogDao;
-    
-    @Autowired
-    public AuditLogServiceImpl(AuditLogDao auditLogDao) {
+
+    public void setAuditLogDao(AuditLogDao auditLogDao) {
         this.auditLogDao = auditLogDao;
     }
 
