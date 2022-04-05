@@ -26,7 +26,7 @@ public class AuditLogServiceImpl implements AuditLogService {
 
     private AuditLogDao auditLogDao;
 
-    public void setAuditLogDao(AuditLogDao auditLogDao) {
+    public AuditLogServiceImpl(AuditLogDao auditLogDao) {
         this.auditLogDao = auditLogDao;
     }
 

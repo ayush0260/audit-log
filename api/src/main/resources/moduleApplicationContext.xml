@@ -36,9 +36,7 @@
         </property>
         <property name="target">
             <bean class="org.openmrs.module.auditlog.service.impl.AuditLogServiceImpl">
-                <property name="auditLogDao">
-                    <ref bean="auditLogDao"/>
-                </property>
+                <constructor-arg ref="auditLogDao"/>
             </bean>
         </property>
         <property name="preInterceptors">
